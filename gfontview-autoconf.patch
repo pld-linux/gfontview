@@ -1,24 +1,19 @@
-diff -Nru gfontview-0.3.2/configure.in gfontview-0.3.2.new/configure.in
---- gfontview-0.3.2/configure.in	Fri Dec 10 22:55:36 1999
-+++ gfontview-0.3.2.new/configure.in	Wed Dec 22 16:28:43 1999
-@@ -8,20 +8,6 @@
- GFV_MICRO_VERSION=2
- GFV_VERSION=$GFV_MAJOR_VERSION.$GFV_MINOR_VERSION.$GFV_MICRO_VERSION
- 
--dnl ---------------------------------------------------------------------------
--dnl for automake
--dnl ---------------------------------------------------------------------------
--AUTOMAKE_OPTIONS=no-dependencies
--VERSION=$GFV_VERSION
--PACKAGE=gfontview
+diff -Nru gfontview-0.4.1/configure.in gfontview-0.4.1.new/configure.in
+--- gfontview-0.4.1/configure.in	Sun May 28 21:16:11 2000
++++ gfontview-0.4.1.new/configure.in	Sat Jul  1 20:59:45 2000
+@@ -30,15 +30,6 @@
+   AC_DEFINE_UNQUOTED(DEFAULT_FONTDIR, "$withval"),
+   AC_DEFINE_UNQUOTED(DEFAULT_FONTDIR, "/usr/share/ghostscript/fonts")
+   )
 -AC_ARG_ENABLE(debug, 
--  [  --enable-debug=[no/yes] turn on debugging [default=no]],,
+-  [  --enable-debug[=yes/no] turn on debugging [no]],,
 -  )
 -if test "$enable_debug" = "yes"; then
 -  CXXFLAGS="-Wall -Wno-unused -g"
 -else
 -  CXXFLAGS="-O2"
 -fi
+-
  
  dnl ---------------------------------------------------------------------------
- dnl Initialize automake now
+ dnl i18n
