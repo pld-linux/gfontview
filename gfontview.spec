@@ -49,11 +49,12 @@ w formacie GIF.
 %patch -p1
 
 %build
+rm -f missing
 %{__gettextize}
-aclocal -I .
+%{__aclocal} -I .
 %{__automake}
 %{__autoconf}
-autoheader
+%{__autoheader}
 CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 	-fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
