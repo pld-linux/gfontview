@@ -70,8 +70,6 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/misc,%{_applnkdir}/Utilities}
 install gfontviewrc $RPM_BUILD_ROOT%{_datadir}/misc/gfontviewrc
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
-gzip -9nf README ChangeLog AUTHORS NEWS TODO
-
 %find_lang %{name}
 
 %clean
@@ -79,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc {README,ChangeLog,AUTHORS,NEWS,TODO}.gz
+%doc README ChangeLog AUTHORS NEWS TODO
 %attr(755,root,root) %{_bindir}/gfontview
 
 %config(noreplace) %verify(not size mtime md5) %{_datadir}/misc/gfontviewrc
