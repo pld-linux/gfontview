@@ -1,8 +1,8 @@
-
 [Desktop Entry]
 Name=gfontview
 Comment=Font Viewer
-Comment[pl]=Przegl±darka czcionek
+Comment[pl]=PrzeglÄ…darka czcionek
 Exec=gfontview
 Terminal=0
 Type=Application
+# vi: encoding=utf-8
