@@ -48,7 +48,7 @@ znaku lub fragmentu tekstu w formacie GIF.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" \
-./configure \
+./configure %{_target_platform} \
 	--prefix=%{_prefix} \
 	--with-libungif
 make
