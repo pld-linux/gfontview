@@ -1,0 +1,8 @@
+
+[Desktop Entry]
+Name=gfontview
+Comment=Font Viewer
+Comment[pl]=Przegl±darka czcionek
+Exec=gfontview
+Terminal=0
+Type=Application
