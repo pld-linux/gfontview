@@ -1,22 +1,25 @@
 Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
-Version:	0.3.2
-Release:	2
+Version:	0.4.1
+Release:	1
 License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source0:	http://www.geocities.com/SiliconValley/Foothills/1458/%{name}-%{version}.tgz
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/gfontview/%{name}-%{version}.tar.gz
 Source1:	gfontview.desktop
 Patch0:		gfontview-autoconf.patch
 Icon:		gfontview.xpm
 URL:		http://www.geocities.com/SiliconValley/Foothills/1458/index.html
-BuildRequires:	xpm-devel
-BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	t1lib-devel >= 1.0.0
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	freetype-devel
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	libungif-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	t1lib-devel >= 1.0.0
+BuildRequires:	xpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
@@ -49,6 +52,7 @@ w formacie GIF.
 %patch -p1
 
 %build
+gettextize --copy --force
 aclocal -I .
 automake
 autoconf
@@ -72,10 +76,12 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 gzip -9nf README ChangeLog AUTHORS NEWS TODO
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc {README,ChangeLog,AUTHORS,NEWS,TODO}.gz
 %attr(755,root,root) %{_bindir}/gfontview
