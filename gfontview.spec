@@ -1,12 +1,12 @@
 #
 # Conditional build:
-%bcond_without	gnome	# without GNOME support
+%bcond_with	gnome1	# with GNOME (1.x) support
 #
 Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
 Version:	0.5.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gfontview/%{name}-%{version}.tar.gz
@@ -20,10 +20,10 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	freetype1-devel
 BuildRequires:	gettext-devel
-%{?with_gnome:BuildRequires:	gnome-libs-devel}
+%{?with_gnome1:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	libungif-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	libungif-devel
 BuildRequires:	t1lib-devel >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,7 +66,7 @@ CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 	SPOOLER="/usr/bin/lpr" \
 	--with-libungif \
 	--with-fontdir=/usr/share/fonts/Type1 \
-	%{!?with_gnome:--disable-gnome}
+	%{!?with_gnome1:--disable-gnome}
 
 %{__make}
 
