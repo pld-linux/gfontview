@@ -23,6 +23,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	libungif-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:  lpr
 BuildRequires:	t1lib-devel >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
