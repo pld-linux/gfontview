@@ -1,0 +1,7 @@
+- updated to 0.3.1
+- added more rpm macros
+- added using %%configure macro
+- gfontview now looks for rc file in /usr/X11R6/share/misc instead of current
+  working directory
+- added /usr/share/fonts to fontdirs list
+- other minor fixes
