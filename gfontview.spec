@@ -56,7 +56,7 @@ aclocal -I .
 automake -a -c
 autoconf
 autoheader
-CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O0 -g} -I/usr/include/freetype \
+CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 	-fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
 	--with-libungif \
