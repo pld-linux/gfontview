@@ -51,8 +51,8 @@ w formacie GIF.
 %build
 gettextize --copy --force
 aclocal -I .
-automake -a -c -f
-autoconf
+%{__automake}
+%{__autoconf}
 autoheader
 CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 	-fno-rtti -fno-exceptions -fno-implicit-templates"
