@@ -10,6 +10,7 @@ Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gfontview/%{name}-%{version}.tar.gz
+# Source0-md5:	f06e0e9d67f7d8b3af251fa593e83eeb
 Source1:	%{name}.desktop
 Patch0:		%{name}-autoconf.patch
 Icon:		gfontview.xpm
