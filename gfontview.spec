@@ -49,7 +49,7 @@ w formacie GIF.
 %patch -p1
 
 %build
-gettextize --copy --force
+%{__gettextize}
 aclocal -I .
 %{__automake}
 %{__autoconf}
