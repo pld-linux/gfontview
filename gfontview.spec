@@ -1,40 +1,73 @@
-Summary: A font viewer for Type 1 and TrueType fonts.
-Name: gfontview
-Version: 0.2.2
-Release: 1
-Copyright: GPL
-Group: X11/Utilities
-Source: http://www.geocities.com/SiliconValley/Foothills/1458/gfontview-0-2-2.tgz
-URL: http://www.geocities.com/SiliconValley/Foothills/1458/
-BuildRoot: /var/tmp/gfontview-root
-Vendor: Roberto Alameda <alameda@ibm.net>
-Packager: Katherine Lim (Katherine.Lim@infotech.monash.edu.au)
-Requires: gtk+ >= 1.2, t1lib >= 0.8, freetype >= 1.2
+Summary:	A font viewer for Type 1 and TrueType fonts
+Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
+Name:		gfontview
+Version:	0.3.0
+Release:	1
+Copyright:      GPL
+Group:		X11/Utilities
+Group(pl):	X11/Narzêdzia
+Source0:	http://www.geocities.com/SiliconValley/Foothills/1458/%{name}-0_3_0.tgz
+Source1:	gfontview.desktop
+Icon:           gfontview.xpm
+Patch:		gfontview-fproto.patch
+BuildPrereq:	XFree86-devel
+BuildPrereq:	xpm-devel
+BuildPrereq:	gtk+-devel >= 1.2.0
+BuildPrereq:	glib-devel >= 1.2.0
+BuildPrereq:	t1lib-devel
+BuildPrereq:	freetype-devel
+BuildPrereq:	libungif-devel
+BuildRoot:   	/tmp/%{name}-%{version}-root
+
+%define _prefix	/usr/X11R6
 
 %description
-This is an ALPHA preliminary release.
-
 gfontview is a Font Viewer for outline fonts (PostScript Type 1 and TrueType). 
-It will display all fonts present in the chosen directory in a list,
-with a preview of the font also present in the main window.
+It displays all fonts present in the chosen directory in a list, with 
+a preview of the font in the main window. It also allows you to display 
+a particular character or string of a font in an own window, this character 
+or string can be antialiased (smoothed). The displayed character or string 
+can be saved in GIF format. You can also print a sample of a font. 
+The program can also print a longer text in the selected font, thus allowing 
+you to get an impresion of how a text page looks like in the selected font.
 
-Note: compiled with freetype 1.2 and t1lib 0.8.1 beta
+
+%description -l pl
+gfontview jest przegl±dark± czcionek (PostScrpit Type 1 i TrueType).
+Wy¶wietla listê wszystkich czcionek z wybranego katalogu i umo¿liwia
+podgl±d ka¿dej z nich zarówno w g³ównym oknie programu, jak i w oddzielnych
+oknach. Posiada mo¿liwo¶æ wyg³adzania czcionek (antialiasing), drukowania
+przyk³adów kroju w postaci pojedyñczych znaków, linii jak równie¿ wiêkszych
+partii tekstu, co pozwala na zorientowanie siê, jak wygl±da ca³a strona 
+z wykorzystaniem wybranej czcionki. Program umo¿liwia tak¿e zapisanie
+znaku lub fragmentu tekstu w formacie GIF.
 
 %prep
-%setup
+%setup -q
+%patch -p0
 
 %build
-export CFLAGS=$RPM_OPT_FLAGS
-./configure --prefix=$RPM_BUILD_ROOT/usr
+CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" \
+./configure \
+	--prefix=%{_prefix} \
+	--with-libungif
 make
 
 %install
-make install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+
+make install-strip DESTDIR=$RPM_BUILD_ROOT
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+
+gzip -9nf README ChangeLog AUTHORS NEWS TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-/usr/bin/gfontview
+%defattr(644,root,root,755)
+%doc {README,ChangeLog,AUTHORS,NEWS,TODO}.gz
+%attr(755,root,root) %{_bindir}/gfontview
 
-%doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
+/etc/X11/applnk/Utilities/gfontview.desktop
