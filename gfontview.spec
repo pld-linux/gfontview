@@ -19,10 +19,9 @@ BuildRequires:	t1lib-devel
 BuildRequires:	freetype-devel
 BuildRequires:	libungif-devel
 BuildRequires:	libstdc++-devel
-BuildRoot:   	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 gfontview is a Font Viewer for outline fonts (PostScript Type 1 and TrueType). 
@@ -33,7 +32,6 @@ or string can be antialiased (smoothed). The displayed character or string
 can be saved in GIF format. You can also print a sample of a font. 
 The program can also print a longer text in the selected font, thus allowing 
 you to get an impresion of how a text page looks like in the selected font.
-
 
 %description -l pl
 gfontview jest przegl±dark± czcionek (PostScrpit Type 1 i TrueType).
