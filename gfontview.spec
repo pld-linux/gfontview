@@ -59,7 +59,7 @@ export LDFLAGS CXXFLAGS
 %configure \
 	--with-libungif \
 	--with-fontdir=/usr/share/fonts/Type1
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
