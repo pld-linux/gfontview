@@ -11,14 +11,14 @@ Source1:	gfontview.desktop
 Icon:           gfontview.xpm
 Patch:		gfontview-fproto.patch
 URL: 		http://www.geocities.com/SiliconValley/Foothills/1458/
-BuildPrereq:	XFree86-devel
-BuildPrereq:	xpm-devel
-BuildPrereq:	gtk+-devel >= 1.2.0
-BuildPrereq:	glib-devel >= 1.2.0
-BuildPrereq:	t1lib-devel
-BuildPrereq:	freetype-devel
-BuildPrereq:	libungif-devel
-BuildPrereq:	libstdc++-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	glib-devel >= 1.2.0
+BuildRequires:	t1lib-devel
+BuildRequires:	freetype-devel
+BuildRequires:	libungif-devel
+BuildRequires:	libstdc++-devel
 BuildRoot:   	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
