@@ -19,7 +19,7 @@ BuildRequires:	t1lib-devel >= 1.0.0
 BuildRequires:	freetype-devel
 BuildRequires:	libungif-devel
 BuildRequires:	libstdc++-devel
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n) -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
 
