@@ -11,3 +11,12 @@
  
  #: gfont.C:132
  msgid "_Open..."
+@@ -561,7 +561,7 @@
+ #: dialogs.C:2283
+ #, c-format
+ msgid "Failed to Write to given file (%s)"
+-msgstr "Echec de l'écriture sur le fichier donné (%)"
++msgstr "Echec de l'écriture sur le fichier donné (%s)"
+ 
+ #: dialogs.C:2287
+ msgid "Screen Descriptor already been set"
