@@ -1,19 +1,19 @@
-diff -Nru gfontview-0.4.1/configure.in gfontview-0.4.1.new/configure.in
---- gfontview-0.4.1/configure.in	Sun May 28 21:16:11 2000
-+++ gfontview-0.4.1.new/configure.in	Sat Jul  1 20:59:45 2000
-@@ -30,15 +30,6 @@
-   AC_DEFINE_UNQUOTED(DEFAULT_FONTDIR, "$withval"),
+--- gfontview-0.5.0/configure.in~	Sun Mar 18 00:33:30 2001
++++ gfontview-0.5.0/configure.in	Sat Apr 21 00:31:18 2001
+@@ -25,16 +25,6 @@
    AC_DEFINE_UNQUOTED(DEFAULT_FONTDIR, "/usr/share/ghostscript/fonts")
    )
+ 
 -AC_ARG_ENABLE(debug, 
--  [  --enable-debug[=yes/no] turn on debugging [no]],,
+-  [  --enable-debug[=yes/no] turn on debugging [no]],,enable_debug=no
 -  )
 -if test "$enable_debug" = "yes"; then
+-  AC_DEFINE(DEBUG) 
 -  CXXFLAGS="-Wall -Wno-unused -g"
 -else
 -  CXXFLAGS="-O2"
 -fi
 -
- 
- dnl ---------------------------------------------------------------------------
- dnl i18n
+ AC_ARG_ENABLE(gnome,
+   [  --enable-gnome[=yes/no] enable use of gnome [yes]],,enable_gnome=yes
+   )              
