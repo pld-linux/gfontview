@@ -53,7 +53,7 @@ w formacie GIF.
 %build
 gettextize --copy --force
 aclocal -I .
-automake
+automake -a -c
 autoconf
 autoheader
 LDFLAGS="-s"
