@@ -11,10 +11,8 @@ Source1:	gfontview.desktop
 Patch0:		gfontview-autoconf.patch
 Icon:		gfontview.xpm
 URL:		http://www.geocities.com/SiliconValley/Foothills/1458/index.html
-BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	glib-devel >= 1.2.6
 BuildRequires:	t1lib-devel >= 1.0.0
 BuildRequires:	freetype-devel
 BuildRequires:	libungif-devel
