@@ -65,7 +65,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/misc,%{_applnkdir}/Utilities}
 
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install .gfontviewrc $RPM_BUILD_ROOT%{_datadir}/misc/gfontviewrc
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
