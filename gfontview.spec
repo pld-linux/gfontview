@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_gnome - without GNOME support
+%bcond_without	# gnome - without GNOME support
 #
 Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
@@ -13,20 +13,19 @@ Source0:	http://dl.sourceforge.net/gfontview/%{name}-%{version}.tar.gz
 # Source0-md5:	f06e0e9d67f7d8b3af251fa593e83eeb
 Source1:	%{name}.desktop
 Patch0:		%{name}-autoconf.patch
+Patch1:		%{name}-gcc33.patch
 Icon:		gfontview.xpm
 URL:		http://gfontview.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	freetype1-devel
 BuildRequires:	gettext-devel
-%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
+%{?with_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	libungif-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	lpr
 BuildRequires:	t1lib-devel >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 gfontview is a Font Viewer for outline fonts (PostScript Type 1 and
@@ -52,21 +51,22 @@ w formacie GIF.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
-rm -f missing
 %{__gettextize}
 %{__aclocal} -I .
-%{__automake}
 %{__autoconf}
 %{__autoheader}
+%{__automake}
 CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 	-fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
+	SPOOLER="/usr/bin/lpr" \
 	--with-libungif \
 	--with-fontdir=/usr/share/fonts/Type1 \
-	%{?_without_gnome:--disable-gnome}
+	%{!?with_gnome:--disable-gnome}
 
 %{__make}
 
@@ -74,7 +74,8 @@ CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/misc,%{_applnkdir}/Utilities}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install gfontviewrc $RPM_BUILD_ROOT%{_datadir}/misc/gfontviewrc
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
