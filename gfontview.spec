@@ -1,3 +1,7 @@
+#
+# Conditional build:
+# _without_gnome - without GNOME support
+#
 Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
