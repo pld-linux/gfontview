@@ -1,20 +1,20 @@
 Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
-Version:	0.3.1
+Version:	0.3.2
 Release:	1
 Copyright:      GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source0:	http://www.geocities.com/SiliconValley/Foothills/1458/%{name}-0_3_1.tgz
+Source0:	http://www.geocities.com/SiliconValley/Foothills/1458/%{name}-0_3_2.tgz
 Source1:	gfontview.desktop
-Patch:		gfontview-config.patch
+Patch:		gfontview-autoconf.patch
 Icon:           gfontview.xpm
 URL:		http://www.geocities.com/SiliconValley/Foothills/1458/index.html
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	glib-devel >= 1.2.0
+BuildRequires:	gtk+-devel >= 1.2.6
+BuildRequires:	glib-devel >= 1.2.6
 BuildRequires:	t1lib-devel
 BuildRequires:	freetype-devel
 BuildRequires:	libungif-devel
@@ -47,10 +47,15 @@ znaku lub fragmentu tekstu w formacie GIF.
 
 %prep
 %setup -q
-%patch -p0
+%patch -p1
 
 %build
-CXXFLAGS="$RPM_OPT_FLAGS"; LDFLAGS="-s"
+aclocal -I .
+automake
+autoconf
+autoheader
+LDFLAGS="-s"
+CXXFLAGS="$RPM_OPT_FLAGS -I/usr/include/freetype -fno-rtti -fno-exceptions -fno-implicit-templates"
 export LDFLAGS CXXFLAGS
 %configure \
 	--with-libungif \
