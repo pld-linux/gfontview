@@ -57,10 +57,10 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+install -d $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
 
 make install-strip DESTDIR=$RPM_BUILD_ROOT
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
 
 gzip -9nf README ChangeLog AUTHORS NEWS TODO
 
@@ -72,4 +72,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc {README,ChangeLog,AUTHORS,NEWS,TODO}.gz
 %attr(755,root,root) %{_bindir}/gfontview
 
-/etc/X11/applnk/Utilities/gfontview.desktop
+/usr/X11R6/share/applnk/Utilities/gfontview.desktop
