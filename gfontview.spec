@@ -1,8 +1,8 @@
 Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
-Version:	0.4.1
-Release:	2
+Version:	0.5.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -46,7 +46,6 @@ zorientowanie siê, jak wygl±da ca³a strona z wykorzystaniem wybranej
 czcionki. Program umo¿liwia tak¿e zapisanie znaku lub fragmentu tekstu
 w formacie GIF.
 
-
 %prep
 %setup -q
 %patch -p1
@@ -70,7 +69,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/misc,%{_applnkdir}/Utilities}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install .gfontviewrc $RPM_BUILD_ROOT%{_datadir}/misc/gfontviewrc
+install gfontviewrc $RPM_BUILD_ROOT%{_datadir}/misc/gfontviewrc
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 gzip -9nf README ChangeLog AUTHORS NEWS TODO
