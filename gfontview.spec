@@ -44,7 +44,7 @@ gfontview jest przegl±dark± czcionek (PostScrpit Type 1 i TrueType).
 Wy¶wietla listê wszystkich czcionek z wybranego katalogu i umo¿liwia
 podgl±d ka¿dej z nich zarówno w g³ównym oknie programu, jak i w
 oddzielnych oknach. Posiada mo¿liwo¶æ wyg³adzania czcionek
-(antialiasing), drukowania przyk³adów kroju w postaci pojedyñczych
+(antialiasing), drukowania przyk³adów kroju w postaci pojedynczych
 znaków, linii jak równie¿ wiêkszych partii tekstu, co pozwala na
 zorientowanie siê, jak wygl±da ca³a strona z wykorzystaniem wybranej
 czcionki. Program umo¿liwia tak¿e zapisanie znaku lub fragmentu tekstu
