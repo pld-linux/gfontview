@@ -1,16 +1,16 @@
 Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
-Version:	0.3.0
+Version:	0.3.1
 Release:	1
 Copyright:      GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source0:	http://www.geocities.com/SiliconValley/Foothills/1458/%{name}-0_3_0.tgz
+Source0:	http://www.geocities.com/SiliconValley/Foothills/1458/%{name}-0_3_1.tgz
 Source1:	gfontview.desktop
+Patch:		gfontview-config.patch
 Icon:           gfontview.xpm
-Patch:		gfontview-fproto.patch
-URL: 		http://www.geocities.com/SiliconValley/Foothills/1458/
+URL:		http://www.geocities.com/SiliconValley/Foothills/1458/index.html
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRequires:	gtk+-devel >= 1.2.0
@@ -21,7 +21,8 @@ BuildRequires:	libungif-devel
 BuildRequires:	libstdc++-devel
 BuildRoot:   	/tmp/%{name}-%{version}-root
 
-%define _prefix	/usr/X11R6
+%define 	_prefix		/usr/X11R6
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 gfontview is a Font Viewer for outline fonts (PostScript Type 1 and TrueType). 
@@ -49,18 +50,21 @@ znaku lub fragmentu tekstu w formacie GIF.
 %patch -p0
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix} \
-	--with-libungif
+CXXFLAGS="$RPM_OPT_FLAGS"; LDFLAGS="-s"
+export LDFLAGS CXXFLAGS
+%configure \
+	--with-libungif \
+	--with-fontdir=/usr/share/fonts/Type1
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
+install -d $RPM_BUILD_ROOT{%{_datadir}/misc,%{_applnkdir}/Utilities}
 
-make install-strip DESTDIR=$RPM_BUILD_ROOT
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
+make install DESTDIR=$RPM_BUILD_ROOT
+
+install .gfontviewrc $RPM_BUILD_ROOT%{_datadir}/misc/gfontviewrc
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 gzip -9nf README ChangeLog AUTHORS NEWS TODO
 
@@ -72,4 +76,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc {README,ChangeLog,AUTHORS,NEWS,TODO}.gz
 %attr(755,root,root) %{_bindir}/gfontview
 
-/usr/X11R6/share/applnk/Utilities/gfontview.desktop
+%config(noreplace) %verify(not size mtime md5) %{_datadir}/misc/gfontviewrc
+%{_applnkdir}/Utilities/gfontview.desktop
