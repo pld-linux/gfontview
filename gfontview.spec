@@ -4,13 +4,14 @@ Name:		gfontview
 Version:	0.4.1
 Release:	1
 License:	GPL
-Group:		X11/Utilities
-Group(pl):	X11/Narzêdzia
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/gfontview/%{name}-%{version}.tar.gz
-Source1:	gfontview.desktop
-Patch0:		gfontview-autoconf.patch
+Source1:	%{name}.desktop
+Patch0:		%{name}-autoconf.patch
 Icon:		gfontview.xpm
-URL:		http://www.geocities.com/SiliconValley/Foothills/1458/index.html
+URL:		http://gfontview.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	freetype-devel
@@ -56,9 +57,7 @@ aclocal -I .
 automake -a -c
 autoconf
 autoheader
-LDFLAGS="-s"
-CXXFLAGS="$RPM_OPT_FLAGS -I/usr/include/freetype -fno-rtti -fno-exceptions -fno-implicit-templates"
-export LDFLAGS CXXFLAGS
+CXXFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O0 -g} -I/usr/include/freetype -fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
 	--with-libungif \
 	--with-fontdir=/usr/share/fonts/Type1
