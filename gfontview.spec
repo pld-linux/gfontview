@@ -6,7 +6,7 @@ Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
 Version:	0.5.0
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gfontview/%{name}-%{version}.tar.gz
@@ -72,13 +72,13 @@ CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/misc,%{_applnkdir}/Utilities}
+install -d $RPM_BUILD_ROOT{%{_datadir}/misc,%{_desktopdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install gfontviewrc $RPM_BUILD_ROOT%{_datadir}/misc/gfontviewrc
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
@@ -90,5 +90,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog AUTHORS NEWS TODO
 %attr(755,root,root) %{_bindir}/gfontview
 %config(noreplace) %verify(not size mtime md5) %{_datadir}/misc/gfontviewrc
-%{_applnkdir}/Utilities/gfontview.desktop
+%{_desktopdir}/gfontview.desktop
 %{_pixmapsdir}/gfontview.png
