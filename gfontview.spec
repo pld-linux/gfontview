@@ -25,7 +25,6 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	t1lib-devel >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define 	_prefix		/usr/X11R6
 
 %description
 gfontview is a Font Viewer for outline fonts (PostScript Type 1 and
