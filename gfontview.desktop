@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=gfontview
+Name=Gfontview
 Comment=Font Viewer
-Comment[pl]=Przeglądarka czcionek
+Comment[pl]=Przeglądarka fontów
 Exec=gfontview
 Terminal=0
 Type=Application
