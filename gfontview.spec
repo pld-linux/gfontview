@@ -6,7 +6,7 @@ Summary:	A font viewer for Type 1 and TrueType fonts
 Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
 Name:		gfontview
 Version:	0.5.0
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gfontview/%{name}-%{version}.tar.gz
