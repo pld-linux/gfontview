@@ -5,6 +5,7 @@ Comment[pl]=Przeglądarka fontów
 Exec=gfontview
 Terminal=false
 Type=Application
+Icon=gfontview
 Encoding=UTF-8
 Categories=GTK;Utility;
 # vi: encoding=utf-8
