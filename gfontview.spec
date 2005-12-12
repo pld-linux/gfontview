@@ -91,6 +91,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog AUTHORS NEWS TODO
 %attr(755,root,root) %{_bindir}/gfontview
-%config(noreplace) %verify(not size mtime md5) %{_datadir}/misc/gfontviewrc
+%config(noreplace) %verify(not md5 mtime size) %{_datadir}/misc/gfontviewrc
 %{_desktopdir}/gfontview.desktop
 %{_pixmapsdir}/gfontview.png
