@@ -15,7 +15,6 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-gcc33.patch
 Patch2:		%{name}-po.patch
-Icon:		gfontview.xpm
 URL:		http://gfontview.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
