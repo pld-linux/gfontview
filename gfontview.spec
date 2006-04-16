@@ -15,6 +15,7 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-gcc33.patch
 Patch2:		%{name}-po.patch
+Patch3:		%{name}-gcc4.patch
 URL:		http://gfontview.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -54,6 +55,7 @@ w formacie GIF.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__gettextize}
