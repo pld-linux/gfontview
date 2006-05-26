@@ -21,10 +21,10 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	freetype1-devel
 BuildRequires:	gettext-devel
+BuildRequires:	giflib-devel
 %{?with_gnome1:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	libstdc++-devel
-BuildRequires:	libungif-devel
 BuildRequires:	t1lib-devel >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,7 +67,6 @@ CXXFLAGS="%{rpmcflags} -I/usr/include/freetype \
 	-fno-rtti -fno-exceptions -fno-implicit-templates"
 %configure \
 	SPOOLER="/usr/bin/lpr" \
-	--with-libungif \
 	--with-fontdir=/usr/share/fonts/Type1 \
 	%{!?with_gnome1:--disable-gnome}
 
