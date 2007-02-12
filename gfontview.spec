@@ -3,7 +3,7 @@
 %bcond_with	gnome1	# with GNOME (1.x) support
 #
 Summary:	A font viewer for Type 1 and TrueType fonts
-Summary(pl):	Przegl±darka czcionek Type 1 i TrueType
+Summary(pl.UTF-8):   PrzeglÄ…darka czcionek Type 1 i TrueType
 Name:		gfontview
 Version:	0.5.0
 Release:	7
@@ -39,15 +39,15 @@ print a sample of a font. The program can also print a longer text in
 the selected font, thus allowing you to get an impresion of how a text
 page looks like in the selected font.
 
-%description -l pl
-gfontview jest przegl±dark± czcionek (PostScrpit Type 1 i TrueType).
-Wy¶wietla listê wszystkich czcionek z wybranego katalogu i umo¿liwia
-podgl±d ka¿dej z nich zarówno w g³ównym oknie programu, jak i w
-oddzielnych oknach. Posiada mo¿liwo¶æ wyg³adzania czcionek
-(antialiasing), drukowania przyk³adów kroju w postaci pojedynczych
-znaków, linii jak równie¿ wiêkszych partii tekstu, co pozwala na
-zorientowanie siê, jak wygl±da ca³a strona z wykorzystaniem wybranej
-czcionki. Program umo¿liwia tak¿e zapisanie znaku lub fragmentu tekstu
+%description -l pl.UTF-8
+gfontview jest przeglÄ…darkÄ… czcionek (PostScrpit Type 1 i TrueType).
+WyÅ›wietla listÄ™ wszystkich czcionek z wybranego katalogu i umoÅ¼liwia
+podglÄ…d kaÅ¼dej z nich zarÃ³wno w gÅ‚Ã³wnym oknie programu, jak i w
+oddzielnych oknach. Posiada moÅ¼liwoÅ›Ä‡ wygÅ‚adzania czcionek
+(antialiasing), drukowania przykÅ‚adÃ³w kroju w postaci pojedynczych
+znakÃ³w, linii jak rÃ³wnieÅ¼ wiÄ™kszych partii tekstu, co pozwala na
+zorientowanie siÄ™, jak wyglÄ…da caÅ‚a strona z wykorzystaniem wybranej
+czcionki. Program umoÅ¼liwia takÅ¼e zapisanie znaku lub fragmentu tekstu
 w formacie GIF.
 
 %prep
