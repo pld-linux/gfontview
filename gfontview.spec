@@ -3,7 +3,7 @@
 %bcond_with	gnome1	# with GNOME (1.x) support
 #
 Summary:	A font viewer for Type 1 and TrueType fonts
-Summary(pl.UTF-8):   Przeglądarka czcionek Type 1 i TrueType
+Summary(pl.UTF-8):	Przeglądarka czcionek Type 1 i TrueType
 Name:		gfontview
 Version:	0.5.0
 Release:	7
